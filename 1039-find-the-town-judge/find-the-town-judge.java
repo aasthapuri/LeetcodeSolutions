@@ -9,7 +9,9 @@ class Solution {
 
 
         for(int node:map.keySet()){
+             System.out.println(node);
             if(map.get(node)==n-1){
+               
                 return node;
             }
         }
