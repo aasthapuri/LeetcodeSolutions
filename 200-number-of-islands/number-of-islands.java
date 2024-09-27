@@ -14,7 +14,6 @@ class Solution {
         Queue<Pair> q = new LinkedList<>();
         q.add(new Pair(row, col));
 
-        // Define the four cardinal directions (up, down, left, right)
         int[] dRow = {-1, 1, 0, 0};
         int[] dCol = {0, 0, -1, 1};
 
@@ -23,12 +22,10 @@ class Solution {
             int r = current.first;
             int c = current.second;
 
-            // Check all four directions
             for (int i = 0; i < 4; i++) {
                 int a = r + dRow[i];
                 int b = c + dCol[i];
 
-                // Ensure within bounds and that it's an unvisited '1'
                 if (a >= 0 && a < grid.length && b >= 0 && b < grid[0].length 
                     && visitor[a][b] == 0 && grid[a][b] == '1') {
                     visitor[a][b] = 1;
@@ -46,7 +43,6 @@ class Solution {
 
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[0].length; col++) {
-                // Start BFS if it's an unvisited land cell
                 if (visitor[row][col] == 0 && grid[row][col] == '1') {
                     count++;
                     bfs(visitor, row, col, grid);
