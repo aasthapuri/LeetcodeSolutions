@@ -1,17 +1,14 @@
 class Solution {
     public char repeatedCharacter(String s) {
-        HashMap<Character,Integer> map = new HashMap<>();
-        char c = ' ';
+        int[] array = new int[26];
+        
         for(int i=0;i<s.length();i++){
-            if(!map.containsKey(s.charAt(i))){
-                map.put(s.charAt(i),1);
-            }
-            else{
-                c = s.charAt(i);
-                break;
-            }
+            array[s.charAt(i)-'a']++;
             
+            if(array[s.charAt(i)-'a']==2){
+                return s.charAt(i);
+            }
         }
-        return c;
+        return ' ';
     }
 }
