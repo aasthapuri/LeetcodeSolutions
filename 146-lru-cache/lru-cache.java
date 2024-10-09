@@ -10,9 +10,9 @@ class LRUCache {
     }
     
     public int get(int key) {
-        if(!map.containsKey(key)){
-            return -1;
-        }
+       if(!map.containsKey(key)){
+           return -1;
+       }
         q.remove(key);
         q.addLast(key);
         return map.get(key);
@@ -27,8 +27,8 @@ class LRUCache {
         q.addLast(key);
         
         if(map.size()>capacity){
-            int num = q.pollFirst();
-            map.remove(num);
+            int removed = q.pollFirst();
+            map.remove(removed);
         }
     }
 }
