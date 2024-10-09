@@ -14,7 +14,7 @@ class LRUCache {
            return -1;
        }
         q.remove(key);
-        q.addLast(key);
+        q.addFirst(key);
         return map.get(key);
     }
     
@@ -24,10 +24,10 @@ class LRUCache {
             map.remove(key);
         }
         map.put(key,value);
-        q.addLast(key);
+        q.addFirst(key);
         
         if(map.size()>capacity){
-            int removed = q.pollFirst();
+            int removed = q.pollLast();
             map.remove(removed);
         }
     }
