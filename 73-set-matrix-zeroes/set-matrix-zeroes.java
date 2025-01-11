@@ -1,21 +1,21 @@
 class Solution {
-    public void setZeroes(int[][] arr){
+    public void setZeroes(int[][] matrix) {
         HashSet<Integer> row = new HashSet<>();
-        HashSet<Integer> column = new HashSet<>();
-        
-        for(int i=0;i<arr.length;i++){
-            for(int j=0;j<arr[0].length;j++){
-                if(arr[i][j]==0){
+        HashSet<Integer> col = new HashSet<>();
+
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(matrix[i][j]==0){
                     row.add(i);
-                    column.add(j);
+                    col.add(j);
                 }
             }
         }
-        
-        for(int i=0;i<arr.length;i++){
-            for(int j=0;j<arr[0].length;j++){
-                if(row.contains(i) || column.contains(j)){
-                    arr[i][j]=0;
+
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(row.contains(i) || col.contains(j)){
+                    matrix[i][j] = 0;
                 }
             }
         }
